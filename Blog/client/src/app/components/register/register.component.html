@@ -1,12 +1,12 @@
 <h2>Register</h2>
 <hr>
-<form [formGroup]="registerForm" (submit)="onRegisterSubmit()">
+<form [formGroup]="registerForm" (submit)="registerFormSubmit()">
   <div class="form-group">
     <label for="username">Username:</label>
     <div [ngClass]="{'has-error': (registerForm.controls.username.errors && registerForm.controls.username.dirty), 'has-success': (!registerForm.controls.username.errors)}">
       <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username">
       <ul class="help-block">
-        <li *ngIf="registerForm.controls.username.errors && registerForm.controls.username.dirty">Полето е задължително</li>
+        <li *ngIf="registerForm.controls.username.errors && registerForm.controls.username.dirty">This field is required</li>
       </ul>
     </div>
   </div>
@@ -15,7 +15,7 @@
     <div [ngClass]="{'has-error': (registerForm.controls.password.errors && registerForm.controls.password.dirty), 'has-success': (!registerForm.controls.password.errors)}">
       <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
       <ul class="help-block">
-        <li *ngIf="registerForm.controls.password.errors && registerForm.controls.password.dirty">Полето е задължително</li>
+        <li *ngIf="registerForm.controls.password.errors && registerForm.controls.password.dirty">This field is required</li>
       </ul>
     </div>
   </div>
@@ -24,7 +24,7 @@
     <div [ngClass]="{'has-error': (registerForm.controls.confirm.errors && registerForm.controls.confirm.dirty), 'has-success': (!registerForm.controls.confirm.errors)}">
       <input type="password" class="form-control" id="confirm" placeholder="Password" formControlName="confirm">
       <ul class="help-block">
-        <li *ngIf="registerForm.controls.confirm.errors && registerForm.controls.confirm.dirty">Полето е задължително</li>
+        <li *ngIf="registerForm.controls.confirm.errors && registerForm.controls.confirm.dirty">This field is required</li>
       </ul>
     </div>
   </div>
@@ -33,9 +33,9 @@
     <div [ngClass]="{'has-error': (registerForm.controls.email.errors && registerForm.controls.email.dirty), 'has-success': (!registerForm.controls.email.errors)}">
       <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
       <ul class="help-block">
-        <li *ngIf="registerForm.controls.email.errors && registerForm.controls.email.dirty">Полето е задължително</li>
+        <li *ngIf="registerForm.controls.email.errors && registerForm.controls.email.dirty">This field is required</li>
       </ul>
     </div>
   </div>
-  <button [disabled]="!registerForm.valid"type="submit" class="btn btn-default">Изпрати</button>
+  <button [disabled]="!registerForm.valid"type="submit" class="btn btn-default">Register</button>
 </form>
