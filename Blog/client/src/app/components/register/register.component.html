@@ -1,3 +1,4 @@
+<flash-messages></flash-messages>
 <h2>Register</h2>
 <hr>
 <form [formGroup]="registerForm" (submit)="registerFormSubmit()">
@@ -21,10 +22,11 @@
   </div>
   <div class="form-group">
     <label for="confirm">Confirm Password:</label>
-    <div [ngClass]="{'has-error': (registerForm.controls.confirm.errors && registerForm.controls.confirm.dirty), 'has-success': (!registerForm.controls.confirm.errors)}">
+    <div [ngClass]="{'has-error': (registerForm.controls.confirm.errors && registerForm.controls.confirm.dirty) || (registerForm.errors?.matchPasswords && registerForm.controls.confirm.dirty), 'has-success': (!registerForm.controls.confirm.errors)}">
       <input type="password" class="form-control" id="confirm" placeholder="Password" formControlName="confirm">
       <ul class="help-block">
         <li *ngIf="registerForm.controls.confirm.errors && registerForm.controls.confirm.dirty">This field is required</li>
+        <li *ngIf="registerForm.errors?.matchPasswords && registerForm.controls.confirm.dirty">Password do not match</li>
       </ul>
     </div>
   </div>

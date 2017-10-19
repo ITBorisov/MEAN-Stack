@@ -1,0 +1,24 @@
+<flash-messages></flash-messages>
+<h2>Login</h2>
+<hr>
+<form [formGroup]="loginForm" (submit)="loginFormSubmit()">
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <div [ngClass]="{'has-error': (loginForm.controls.username.errors && loginForm.controls.username.dirty), 'has-success': (!loginForm.controls.username.errors)}">
+      <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username">
+      <ul class="help-block">
+        <li *ngIf="loginForm.controls.username.errors && loginForm.controls.username.dirty">This field is required</li>
+      </ul>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <div [ngClass]="{'has-error': (loginForm.controls.password.errors && loginForm.controls.password.dirty), 'has-success': (!loginForm.controls.password.errors)}">
+      <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+      <ul class="help-block">
+        <li *ngIf="loginForm.controls.password.errors && loginForm.controls.password.dirty">This field is required</li>
+      </ul>
+    </div>
+  </div>
+  <button [disabled]="!loginForm.valid"type="submit" class="btn btn-default">Login</button>
+</form>
