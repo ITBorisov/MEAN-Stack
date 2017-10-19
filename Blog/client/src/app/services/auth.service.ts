@@ -14,4 +14,11 @@ export class AuthService {
     return this.http.post(this.url + '/user/register', body, {headers: headers})
                 .map((response: Response) => response.json());
   }
+
+  loginUser(user) {
+    const body = JSON.stringify(user);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.post(this.url + '/user/login', body, {headers: headers})
+                .map((response: Response) => response.json());
+  }
 }

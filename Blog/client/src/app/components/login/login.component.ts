@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required ],
       password: ['', Validators.required ],
     });
+
   }
 
   loginFormSubmit() {
@@ -34,6 +35,20 @@ export class LoginComponent implements OnInit {
       username: this.loginForm.get('username').value,
       password: this.loginForm.get('password').value
     };
+    console.log(user);
+    this.authService.loginUser(user).subscribe(result => {
+      if (!result.success) {
+        this.flashMessages.show(result.message, {cssClass: 'alert-danger', timeout: 4000});
+      }else {
+        localStorage.setItem('token', result.token );
+        localStorage.setItem('user', result.user);
+
+        this.flashMessages.show(result.message, {cssClass: 'alert-success', timeout: 4000});
+        setTimeout(() => {
+          this.router.navigate(['/home']);
+        }, 2000);
+      }
+    });
   }
 
   ngOnInit() {
