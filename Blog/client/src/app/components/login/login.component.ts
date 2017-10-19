@@ -35,17 +35,16 @@ export class LoginComponent implements OnInit {
       username: this.loginForm.get('username').value,
       password: this.loginForm.get('password').value
     };
-    console.log(user);
     this.authService.loginUser(user).subscribe(result => {
+
       if (!result.success) {
         this.flashMessages.show(result.message, {cssClass: 'alert-danger', timeout: 4000});
       }else {
-        localStorage.setItem('token', result.token );
-        localStorage.setItem('user', result.user);
+        this.authService.userData(result.user, result.token);
 
         this.flashMessages.show(result.message, {cssClass: 'alert-success', timeout: 4000});
         setTimeout(() => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/profile']);
         }, 2000);
       }
     });

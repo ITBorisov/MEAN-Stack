@@ -27,14 +27,14 @@ router.post('/login', (req, res) => {
 
     User.findOne({username: req.body.username}, (err, user) => {
         if(err){
-            res.status(500).json({ success: false, message: err });
+            res.json({ success: false, message: err });
         }
         if(!user){
-            res.status(401).json({ success: false, message: 'Invalid login credential' });
+            res.json({ success: false, message: 'Invalid login credential' });
         }else{
             const validPassword = user.comparePassword(req.body.password);
             if(!validPassword){
-                res.status(401).json({ success: false, message: 'Invalid login credential' });
+                res.json({ success: false, message: 'Invalid login credential' });
             }else{
                 const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h' }); // Create a token for client
                 res.json({

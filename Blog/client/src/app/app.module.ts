@@ -14,6 +14,7 @@ import { RegisterComponent } from './components/register/register.component';
 // Services
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoginComponent } from './components/login/login.component';
     BlogComponent,
     RegisterComponent,
     LoginComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
