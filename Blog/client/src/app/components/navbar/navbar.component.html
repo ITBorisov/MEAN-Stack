@@ -4,15 +4,16 @@
 </div>
 
 <div class="col-sm-3 sidenav">
-      <div class="well text-center">
+      <div *ngIf="authService.loggedIn()" class="well text-center">
             <p><a routerLink="profile">My Profile</a></p>
             <img src="https://fs.bitcoinmagazine.com/img/images/anonymous.original.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+            <p><a href="#" (click)="logoutClick()">Logout</a></p>
       </div>
       <ul class="nav nav-pills nav-stacked">
         <li routerLinkActive="active"><a routerLink="home" ><span class="glyphicon glyphicon-home"></span> Home</a></li>
         <li routerLinkActive="active"><a routerLink="blog" ><span class="glyphicon glyphicon-file"></span>Blog</a></li>
-        <li routerLinkActive="active"><a routerLink="login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <li routerLinkActive="active"><a routerLink="register"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
+        <li *ngIf="!authService.loggedIn()"routerLinkActive="active"><a routerLink="login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li *ngIf="!authService.loggedIn()" routerLinkActive="active"><a routerLink="register"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
       </ul><br>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search Blog..">
