@@ -48,5 +48,9 @@ router.post('/login', (req, res) => {
     })
 })
 
-    return router;
+router.get('/profile', (req, res) => {
+    
+})
+
+return router;
 }

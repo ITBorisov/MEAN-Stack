@@ -1,31 +1,26 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Portfolio</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li>
-          <a routerLink="home" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
-true}">Home</a>
-        </li>
-        <li>
-          <a routerLink="blog" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
-true}">Blog</a>
-        </li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a routerLink="login" routerLinkActive="active" routerLinkActiveOption="{exact:true}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <li><a routerLink="register" routerLinkActive="active" routerLinkActiveOption="{exact:true}"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
-        <li><a routerLink="profile" routerLinkActive="active" routerLinkActiveOption="{exact:true}"><span class="glyphicon glyphicon-log-in"></span> Profile</a></li>
-      </ul>
-    </div>
+<div class="jumbotron">
+  <div class="container text-center">
   </div>
-</nav>
+</div>
+
+<div class="col-sm-3 sidenav">
+      <div class="well text-center">
+            <p><a routerLink="profile">My Profile</a></p>
+            <img src="https://fs.bitcoinmagazine.com/img/images/anonymous.original.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+      </div>
+      <ul class="nav nav-pills nav-stacked">
+        <li routerLinkActive="active"><a routerLink="home" ><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li routerLinkActive="active"><a routerLink="blog" ><span class="glyphicon glyphicon-file"></span>Blog</a></li>
+        <li routerLinkActive="active"><a routerLink="login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li routerLinkActive="active"><a routerLink="register"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
+      </ul><br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Blog..">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+
