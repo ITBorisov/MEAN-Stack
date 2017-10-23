@@ -13,10 +13,13 @@ import { RegisterComponent } from './components/register/register.component';
 
 // Services
 import { AuthService } from './services/auth.service';
+import { BlogService } from './services/blog.service';
+
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NoAuthGuard } from './guards/noAuth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,7 @@ import { NoAuthGuard } from './guards/noAuth.guard';
     HttpModule,
     FlashMessagesModule
   ],
-  providers: [AuthService, AuthGuard, NoAuthGuard],
+  providers: [AuthService, BlogService, AuthGuard, NoAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
