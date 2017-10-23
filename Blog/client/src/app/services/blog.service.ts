@@ -19,4 +19,9 @@ export class BlogService {
     const headers = new Headers({'Content-Type': 'application/json', 'authorization': this.authService.authToken});
     return this.http.post(this.url + '/blog/newPost', post, {headers: headers}).map((response: Response) => response.json());
   }
+
+  getAllPosts() {
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.get(this.url + '/blog/all', {headers: headers}).map((response: Response) => response.json());
+  }
 }

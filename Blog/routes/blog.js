@@ -21,5 +21,22 @@ router.post('/newPost', (req, res) => {
     })
 })
 
+    router.get('/all', (req, res) => {
+ 
+    Post.find({}, (err, posts) => {
+    
+      if (err) {
+        res.json({ success: false, message: err }); 
+      } else {
+  
+        if (!posts) {
+          res.json({ success: false, message: 'No posts found.' }); 
+        } else {
+          res.json({ success: true, posts: posts }); 
+        }
+      }
+    }).sort({ '_id': -1 }); 
+  });
+
 return router;
 }

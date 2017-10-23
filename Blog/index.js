@@ -7,9 +7,8 @@ const path = require('path');
 const router = express.Router();
 const cors = require('cors');
 //routes
-const user = require('./routes/user')(router);
 const blog = require('./routes/blog')(router);
- 
+const user = require('./routes/user')(router); 
 
 
 mongoose.Promise = global.Promise;

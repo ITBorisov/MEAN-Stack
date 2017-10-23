@@ -13,6 +13,7 @@ import { BlogService } from '../../services/blog.service';
 export class BlogComponent implements OnInit {
   blogForm: FormGroup;
   username;
+  posts;
 
   constructor(
     private router: Router,
@@ -53,6 +54,12 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.blogService.getAllPosts().subscribe(result => {
+      this.posts = result.posts;
+      console.log(this.posts);
+    });
+    
     this.authService.getProfile().subscribe(profile => {
       this.username = profile.user.username;
     });
