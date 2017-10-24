@@ -10,7 +10,7 @@
     "cars",
     "system"
   ],
-  "author": "Ivaylo Kenov",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "body-parser": "1.17.2",
