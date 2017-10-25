@@ -1,0 +1,47 @@
+<form #registerForm (submit)="onRegister()">
+  <div class="control-group">
+      <label class="control-label" for="name">Name:</label>
+      <div class="controls">
+        <input type="text" id="name" name="name" 
+        placeholder="" class="form-control" [(ngModel)]="user.name" #name="ngModel" required>
+        <div [hidden]="name.valid || name.pristine"
+          class="alert alert-danger">
+            Name is required
+        </div>
+      </div>
+    </div>
+  <div class="control-group">
+    <label class="control-label"  for="password">Password:</label>
+    <div class="controls">
+      <input type="password" id="password" name="password" 
+      placeholder="" class="form-control" [(ngModel)]="user.password" #password="ngModel" required>
+      <div [hidden]="password.valid || password.pristine || password.untach"
+          class="alert alert-danger">
+            Password is required
+        </div>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="confirmPassword">Confirm Password:</label>
+    <div class="controls">
+      <input type="password" id="confirmPassword" name="confirmPassword" 
+      placeholder="" class="form-control" [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel" required>
+      <div [hidden]="password.value === confirmPassword.value || confirmPassword.pristine"
+          class="alert alert-danger">
+           Password is not match
+      </div>
+    </div>
+  </div>
+  <div class="control-group">
+      <label class="control-label"  for="email">Email:</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" 
+        placeholder="" class="form-control" [(ngModel)]="user.email" #email="ngModel" required>
+        <div [hidden]="email.valid || email.pristine"
+          class="alert alert-danger">
+            Email is required
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-danger" value="Submit">Register</button>
+</form>
