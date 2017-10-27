@@ -1,9 +1,14 @@
 const express = require('express')
 const app = express()
+const router = express.Router();
+var cors = require('cors')
 const mongoose = require('mongoose');
 const config = require('./config/database')
 const bodyParser = require('body-parser')
 const path = require('path')
+
+
+const userAuth = require('./routes/users')(router)
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri, (err) => {
@@ -14,10 +19,12 @@ mongoose.connect(config.uri, (err) => {
     }
 });
 
-
-app.use(express.static(__dirname + '/client/dist'))
+app.use(cors({ origin: 'http://localhost:4200' })); 
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); 
+app.use(express.static(__dirname + '/client/dist'))
+app.use('/user', userAuth);
+
 
 app.get('/', function (req, res) {
   res.send('Hello World!')

@@ -1,6 +1,6 @@
-<mat-card class="register-card">
+<mat-card class="auth-card">
   <mat-card-title >Registration Form</mat-card-title>
-  <form #registerForm (submit)="registerFormSubmit()" class="example-form" >
+  <form #registerForm="ngForm" (submit)="registerFormSubmit()" class="auth-form" >
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Username:"  name="username" [(ngModel)]="user.username" #username="ngModel" required>
       <mat-error>This field is required</mat-error>
@@ -9,7 +9,7 @@
       <input type="password" matInput placeholder="Password:" name="password" [(ngModel)]="user.password" #password="ngModel" required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Confirm Password:">
+      <input type="email" matInput placeholder="Email:" name="email" [(ngModel)]="user.email" #email="ngModel" required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <input matInput placeholder="First Name:">
@@ -17,9 +17,7 @@
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Last Name:">
     </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Email:">
-    </mat-form-field>
+    
     <mat-form-field class="example-full-width">
       <span matPrefix>+359 &nbsp;</span>
       <input type="tel" matInput placeholder="Telephone">
@@ -28,7 +26,7 @@
     
   <div class="button-row">
     <button mat-raised-button color="primary">Back</button>
-    <button type="submit" mat-raised-button color="primary">Send</button>
+    <button [disabled]="!registerForm.valid" type="submit" mat-raised-button color="primary">Send</button>
   </div>
   </form>
 </mat-card>

@@ -4,3 +4,17 @@
 body{
     margin: 0px;
 }
+
+.auth-card{
+    margin: 10px auto;
+    width: 60%;
+}
+
+.auth-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form > * {
+  width: 50%;
+}
