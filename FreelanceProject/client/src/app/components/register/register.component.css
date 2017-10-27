@@ -1,0 +1,13 @@
+.register-card{
+    margin: 10px auto;
+    width: 60%;
+}
+
+.example-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.example-form > * {
+  width: 50%;
+}
