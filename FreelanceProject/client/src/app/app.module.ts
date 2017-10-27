@@ -23,6 +23,8 @@ import { RegisterComponent } from './components/register/register.component';
 // Services
 import { AuthService } from './services/auth.service';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AuthGuard } from './guards/auth.guard';
+import { NoAuthGuard } from './guards/noAuth.guard';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     FormsModule,
     HttpModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, NoAuthGuard, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
