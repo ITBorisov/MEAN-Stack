@@ -9,6 +9,7 @@ const path = require('path')
 
 
 const userAuth = require('./routes/users')(router)
+const admin = require('./routes/admin')(router)
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri, (err) => {
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 app.use(express.static(__dirname + '/client/dist'))
 app.use('/user', userAuth);
+app.use('/admin', admin)
 
 
 app.get('/', function (req, res) {

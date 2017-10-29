@@ -19,12 +19,15 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { ProfileComponent } from './components/profile/profile.component';
 // Services
 import { AuthService } from './services/auth.service';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProductsService } from './services/products.service';
 import { AuthGuard } from './guards/auth.guard';
 import { NoAuthGuard } from './guards/noAuth.guard';
+import { AdminGuard } from './guards/admin.guard';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { NoAuthGuard } from './guards/noAuth.guard';
     AdminOrdersComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,7 @@ import { NoAuthGuard } from './guards/noAuth.guard';
     FormsModule,
     HttpModule
   ],
-  providers: [AuthService, NoAuthGuard, AuthGuard],
+  providers: [AuthService, ProductsService, NoAuthGuard, AuthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

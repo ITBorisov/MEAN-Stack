@@ -3,11 +3,19 @@
 
 body{
     margin: 0px;
+    background-color: #FAFAFA;
+}
+
+
+h1{
+  padding: 0px 15px;
 }
 
 .auth-card{
-    margin: 10px auto;
-    width: 60%;
+    margin: 20px auto;
+    width: 76%;
+    /*position: relative;
+    bottom: 100px;*/
 }
 
 .auth-form{
@@ -17,4 +25,8 @@ body{
 
 .auth-form > * {
   width: 50%;
+}
+
+.mat-toolbar .mat-toolbar-row{
+  padding: 0px 150px;
 }

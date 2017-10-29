@@ -17,7 +17,9 @@ module.exports = (router) => {
                     let user = new User({
                         username: req.body.username.toLowerCase(),
                         password: req.body.password,
-                        email: req.body.email.toLowerCase()
+                        email: req.body.email.toLowerCase(),
+                        firstName: req.body.firstName,
+                        isAdmin: false
                     });
                     user.save((err) => {
                         if (err) {
@@ -70,7 +72,7 @@ module.exports = (router) => {
     });
 
     router.get('/profile',test, (req, res) => {
-        User.findOne({ _id: req.decoded.userId }).select('username email').exec((err, user) => {
+        User.findOne({ _id: req.decoded.userId }).exec((err, user) => {
             
             if (err) {
                 res.json({ success: false, message: err });
@@ -90,19 +92,19 @@ module.exports = (router) => {
 
 
  function test(req, res, next) {
-    const token = req.headers['authorization']; // Create token found in headers
-    // Check if token was found in headers
+    const token = req.headers['authorization']; 
+    
     if (!token) {
-      res.json({ success: false, message: 'No token provided' }); // Return error
+      res.json({ success: false, message: 'No token provided' }); 
     } else {
-      // Verify the token is valid
+   
       jwt.verify(token, config.secret, (err, decoded) => {
-        // Check if error is expired or invalid
+        
         if (err) {
-          res.json({ success: false, message: 'Token invalid: ' + err }); // Return error for token validation
+          res.json({ success: false, message: 'Token invalid: ' + err }); 
         } else {
-          req.decoded = decoded; // Create global variable to use in any request beyond
-          next(); // Exit middleware
+          req.decoded = decoded; 
+          next(); 
         }
       });
     }

@@ -33,7 +33,7 @@ export class AuthService {
     localStorage.clear();
   }
 
-   loggedIn() {
+  loggedIn() {
     return tokenNotExpired();
   }
 
@@ -44,7 +44,10 @@ export class AuthService {
                     .map((response: Response) => response.json());
   }
 
-
+  isAdmin() {
+    return this.getProfile()
+        .map(result => result.user.isAdmin);
+  }
 
   loadToken() {
     const token = localStorage.getItem('token');
